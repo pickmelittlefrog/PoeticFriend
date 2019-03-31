@@ -1,7 +1,0 @@
-/* pages/school/school.wxss */
-
-
-.slide-image {
-  width: 100%;
-  display: block;
-}

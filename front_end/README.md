@@ -1,2 +1,2 @@
 # PoeticFriend
-∑≈÷√«∞∂À≥Ã–Ú
+just test

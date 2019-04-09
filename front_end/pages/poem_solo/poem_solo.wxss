@@ -1,0 +1,16 @@
+/* pages/poem_solo/poem_solo.wxss */
+
+.position {
+  visibility: hidden;
+  line-height: 400rpx;
+  width: 100%;
+  display: block;
+}
+
+
+.start {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  margin-top: 60rpx;
+}

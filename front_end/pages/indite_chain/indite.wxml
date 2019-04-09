@@ -1,0 +1,93 @@
+<!--pages/indite/indite.wxml-->
+<view class='page'>
+  <view class="page__bd page__bd_spacing">
+
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <view class="middle"></view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="middle">{{name}}</view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="middle"></view>
+      </view>
+    </view>
+
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <view class="middle"></view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="middle"></view>
+      </view>
+      <view class="weui-flex__item">
+        <input class='weui-input underline' placeholder='作者' />
+      </view>
+    </view>
+
+    <!-- 判断是诗还是词 -->
+    <!-- 选择诗 -->
+    <view wx:if='{{index>=0 && index<=3}}'>
+      <view class="weui-flex line" wx:for="{{choice}}" wx:key="*this">
+        <view class="weui-flex__item">
+          <input data-id='{{item}}' class='weui-input underline' bindinput='sentence1' maxlength='{{maxLen}}' disabled='{{sentence_finished[item*2]}}' />
+          <!-- <text class='weui-input poem_text' wx:else>{{sentence[item*2]}}</text> -->
+        </view>
+        <view>
+          <view class='placeholder'>,</view>
+        </view>
+        <view class="weui-flex__item">
+          <input data-id='{{item}}' class='weui-input underline' bindinput='sentence2' maxlength='{{maxLen}}' disabled='{{sentence_finished[item*2+1]}}' />
+          <!-- <text class='weui-input poem_text' wx:else>{{sentence[item*2+1]}}</text> -->
+        </view>
+        <view>
+          <view class='placeholder'>。</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 选择词 -->
+    <view wx:elif='{{index==4}}'>
+      <view class='weui-cell' wx:for="{{verse_top_half}}" wx:key="id">
+        <input data-id='{{item.id}}' style='width:{{item.len}}*35rpx;' class='middle margin0' placeholder='{{item.content}}' maxlength='{{item.len}}' bindinput='paras'  disabled='{{sentence_finished[item.id]}}'></input>
+        <text class='middle'>{{item.punc}}</text>
+      </view>
+      <text class='hint-text'>（上方为示例文字，仅供提示单句长度，请对文字进行修改，切勿照抄哦~）</text>
+    </view>
+
+    <view class="button-sp-area">
+      <button class="weui-btn" type="default" plain="true" bindtap='submit' wx:if="{{!ready}}">提交</button>
+      <button class='weui-btn' type='default' plain='true' bindtap='publish' wx:else>发布</button>
+    </view>
+
+    <view class="weui-cells">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="weui-uploader">
+            <view class="weui-uploader__hd">
+              <view class="weui-uploader__title">添加图片：（可选）</view>
+              <view class="weui-uploader__info">{{files.length}}/9</view>
+            </view>
+            <view class="weui-uploader__bd">
+              <view class="weui-uploader__files" id="uploaderFiles">
+
+                <block wx:for="{{files}}" wx:key="*this">
+                  <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                    <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                  </view>
+                </block>
+
+              </view>
+              <view class="weui-uploader__input-box">
+                <view class="weui-uploader__input" bindtap="chooseImage"></view>
+              </view>
+
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>

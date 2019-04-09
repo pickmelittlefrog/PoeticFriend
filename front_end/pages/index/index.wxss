@@ -17,5 +17,37 @@
 }
 
 .usermotto {
-  margin-top: 200px;
+  margin-top: 400rpx;
+}
+
+.pen {
+  opacity: 0.1;
+  position: fixed;
+}
+
+.circle{
+  width: 140rpx;
+  height: 140rpx;
+  border: 0 solid #ffffff;
+  border-radius: 500rpx; 
+  font-size:0;
+  position: fixed;
+  bottom: 20rpx;
+  right: 20rpx;
+}
+
+.image{
+  margin-top: 20rpx;
+  display: flex;
+  width: 90rpx;
+  height: 90rpx;
+}
+
+.test {
+  border: 0;
+  width: 440rpx;
+  height: 440rpx;
+  background: url(http://pic.51yuansu.com/pic3/cover/00/91/74/58dc2cbe41512_610.jpg);
+  background-size: 100%;
+  border-radius: 10%;
 }

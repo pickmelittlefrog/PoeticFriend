@@ -15,6 +15,13 @@ Page({
       url: '../logs/logs'
     })
   },
+
+  to_poem_solo: function() {
+    wx.navigateTo({
+      url: '../poem_solo/poem_solo',
+    })
+  },
+
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({

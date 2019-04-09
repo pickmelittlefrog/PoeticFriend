@@ -1,15 +1,20 @@
 {
-  "pages":[
+  "pages": [
+    "pages/poem_chain/poem_chain",
+    "pages/poem_solo/poem_solo",
     "pages/index/index",
+    "pages/indite_chain/indite",
+    "pages/room/room",
+    "pages/indite_solo/indite",
     "pages/logs/logs",
     "pages/school/school",
     "pages/mine/mine"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "纸墨笔砚",
-    "navigationBarTextStyle":"black"
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#BC2F2F",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "诗友"
   },
   "tabBar": {
     "color": "#a9b7b7",

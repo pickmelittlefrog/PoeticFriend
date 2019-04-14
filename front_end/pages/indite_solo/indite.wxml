@@ -22,7 +22,7 @@
         <view class="middle"></view>
       </view>
       <view class="weui-flex__item">
-        <input class='weui-input underline' placeholder='作者' bindinput='author' />
+        <view class="middle">{{author}}</view>
       </view>
     </view>
 
@@ -65,7 +65,7 @@
           <view class="weui-uploader">
             <view class="weui-uploader__hd">
               <view class="weui-uploader__title">添加图片：（可选）</view>
-              <view class="weui-uploader__info">{{files.length}}/9</view>
+              <view class="weui-uploader__info">{{files.length}}/1</view>
             </view>
             <view class="weui-uploader__bd">
               <view class="weui-uploader__files" id="uploaderFiles">
@@ -77,8 +77,12 @@
                 </block>
 
               </view>
-              <view class="weui-uploader__input-box">
+              <view class="weui-uploader__input-box" wx:if="{{files.length < 1}}">
                 <view class="weui-uploader__input" bindtap="chooseImage"></view>
+              </view>
+
+              <view class="weui-uploader__file" wx:else>
+                <image src='../../images/close.png' class="weui-uploader__img border" bindtap="deleteImage"></image>
               </view>
 
             </view>

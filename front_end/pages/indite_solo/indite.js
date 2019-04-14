@@ -5,8 +5,9 @@
  * @sentence 保存了每个诗/词句
  * @poem_name 保存了诗/词的名字
  * 由于和多人创作功能近似，不多做赘述
- * 其中唯一的区别是author函数，用于保存作者名
  */
+
+const app = getApp();
 Page({
 
   /**
@@ -120,17 +121,13 @@ Page({
         maxLen: 7
       })
     }
-  },
-/**
- * 保存作者信息
- * @author 作者名
- */
-  author: function(e) {
-    var author = e.detail.value;
+
+    var userInfo = app.globalData.userInfo;
     this.setData({
-      author: author
+      author:userInfo.nickName
     })
   },
+
 
   sentence1: function(e) {
     var id = e.currentTarget.dataset.id;
@@ -162,6 +159,7 @@ Page({
   chooseImage: function(e) {
     var that = this;
     wx.chooseImage({
+      count:1,
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
       success: function(res) {
@@ -180,8 +178,51 @@ Page({
     })
   },
 
+  deleteImage: function (e) {
+    var files = [];
+    this.setData({
+      files: files
+    });
+  },
+
+// {
+//     "poem_id": "12345",//由后端生成的唯一序列
+//     "title": "春色满园关不住",
+//     "master": "小新",//房主
+//     "authors": ["小新", "风间", "妮妮", "正南"],
+//     "cover_url": "http://xxx.com/pics/xiaoxin.pic",//封面图片的地址
+//     "like_count": 20,//被点赞次数
+//     "average_score": 9.01,//平均得分
+//     "publish_timestamp": 1488481383,//发布时间
+//     "is_Regular": false,
+//     "paragraphs": [
+//       "衔泥燕，", "飞到画堂前。", "占得杏梁安稳处，", "体轻唯有主人怜，", "堪羡好因缘。"
+//     ],
+//     "comments": [
+//       {
+//         "is_first_comment": true,//是否为一级评论
+//         "comment_content": "blablabla",//评论内容
+//         "comment_id": "10",//该条评论的id，后端生成，只有一级评论有，二级评论该字段为空
+//         "comment_user_name": "小新",//评论人用户名
+//         "usr_pic_url": "http://",//评论人头像图片,只有为一级评论时才需要，其余情况为空
+//         "reply_user_name": "风间",//该评论是回复给谁的，若为一级评论该字段为空
+//         "reply_comment_id": "5",//二级评论所在一级评论的id，一级评论的该字段为空
+//         "comment_timestamp": 1488481383,//评论时间
+//       },{},{},{},{}...//所有评论
+//     ]
+//   },
+
+
   publish: function() {
     // 除此之外应该还要传递发布所需数据
+    var poem = {};
+    poem.poem_id = 1;
+    poem.title = this.data.name;
+   
+    var userInfo = app.globalData.userInfo;
+    console.log(userInfo);
+    poem.master = userInfo.nickName;
+    poem.authors = new Array(userInfo.nickName);
     wx.switchTab({
       url: '../../pages/index/index'
     })

@@ -1,8 +1,10 @@
 {
   "pages": [
-    "pages/poem_chain/poem_chain",
+    "pages/waiting_room/room",
+    "pages/wager_game/wager_game",
     "pages/poem_solo/poem_solo",
     "pages/index/index",
+    "pages/poem_chain/poem_chain",
     "pages/indite_chain/indite",
     "pages/room/room",
     "pages/indite_solo/indite",

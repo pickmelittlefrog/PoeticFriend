@@ -1,0 +1,21 @@
+/* pages/waiting_room/room.wxss */
+
+.position {
+  visibility: hidden;
+  line-height: 200rpx;
+}
+
+.weui-grids {
+  width: 80%;
+  margin: 0 auto;
+  border-color: white;
+}
+
+.weui-grid {
+  border-color: white;
+}
+
+.weui-btn {
+  width: 50%;
+  margin: 0 auto;
+}

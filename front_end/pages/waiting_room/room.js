@@ -1,8 +1,8 @@
 /**
  * @author 王亦强
- * 本页面位于pages/room/room.js
- * 实现了多人创作时，在房间中等待好友加入的功能。
- * 由于还未实现多人联机，所以尚未对进入房间的朋友人数进行判断。
+ * 本页面位于pages/waiting_room/room.js
+ * 实现了飞花令模块中，在房间中等待好友加入的功能。
+ * 目前先用一个人的头像代替了六个人的。
  */
 
 //获取应用实例
@@ -15,29 +15,14 @@ Page({
    */
   data: {
     grids: [0, 1, 2, 3, 4, 5],
-    name: '无题',
-    index: 0,
-    slider:2
+    userInfo: {},
+    hasUserInfo:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var name = this.data.name;
-    if (options.name != "") {
-      name = options.name;
-    }
-    var slider = options.slider;
-    var index = options.index;
-    var grids = this.data.grids.slice(0, slider);
-    this.setData({
-      name: name,
-      index: index,
-      slider: slider,
-      grids: grids
-    })
-    console.log(slider);
     // 获取用户信息
     if (app.globalData.userInfo) {
       this.setData({
@@ -67,9 +52,9 @@ Page({
     }
   },
 
-  start_indite: function(e){
+  start: function(e){
     wx.navigateTo({
-      url: '../indite_chain/indite?name=' + this.data.name + '&index='+this.data.index+'&slider='+this.data.slider,
+      url: '../wager_game/wager_game'
     })
   },
 

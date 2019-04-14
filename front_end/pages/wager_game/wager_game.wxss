@@ -1,0 +1,49 @@
+/* pages/wager_game/wager_game.wxss */
+
+.info {
+  width: 55%;
+}
+
+.middle {
+  text-align: center;
+}
+
+.weui-flex {
+  margin-top: 60rpx;
+}
+
+.placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500rpx;
+  width: 80rpx;
+  writing-mode: vertical-lr;
+  margin: 0 auto;
+  border: 2rpx solid #A9A9A9;
+  border-radius: 10px;
+}
+
+.keyword {
+  color: red;
+}
+
+.circular {
+  border: 1rpx solid #A9A9A9;
+  padding: 10rpx;
+  border-radius: 50%;
+}
+
+.context {
+  margin: 30rpx auto;
+  margin-top: 100rpx;
+  text-align: center;
+  width: 70%;
+  border: 1rpx solid #A9A9A9;
+}
+
+.send {
+  width: 30%;
+}
+
+

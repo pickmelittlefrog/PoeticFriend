@@ -43,3 +43,7 @@
   font-size: 30rpx;
   color: grey;
 }
+
+.border {
+  border:2rpx solid #a9a9a9;
+}

@@ -1,9 +1,8 @@
 /**
  * @author 王亦强
  * 本文件位于pages/poem_chain/poem_chain.js
- * 主要实现了多人创作 类别与诗/词名 选择的界面
+ * 主要实现了多人创作-类别及诗/词名选择的界面
  */
-
 
 //获取应用实例
 const App = getApp();
@@ -22,6 +21,7 @@ Page({
     slider: 2,
     verse: ['念奴娇', '沁园春', '蝶恋花'],
     verseIndex: 0
+    
   },
 
   /**
